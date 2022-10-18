@@ -38,5 +38,5 @@ if __name__ == '__main__':
     with open('todo_all_employees.json', "w") as file:
         all_users = {}
         for employee_id in employee_ids:
-            all_users[str(employee_id)] = [get_employee_task(employee_id)]
+            all_users[str(employee_id)] = get_employee_task(employee_id)
         file.write(json.dumps(all_users))
