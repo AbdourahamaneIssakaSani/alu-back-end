@@ -34,10 +34,9 @@ def get_employee_ids():
 if __name__ == '__main__':
 
     employee_ids = get_employee_ids()
-    print(employee_ids)
+
     with open('todo_all_employees.json', "w") as file:
         all_users = {}
         for employee_id in employee_ids:
-            print("for id {}".format(employee_id))
             all_users[str(employee_id)] = [get_employee_task(employee_id)]
         file.write(json.dumps(all_users))
