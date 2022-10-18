@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Module"""
+""""Module"""
 
 import json
 import requests
 import sys
 
 if __name__ == '__main__':
-    employee_id = sys.argv[1]
+    employee_id = sys.argv[2]
     user_url = "https://jsonplaceholder.typicode.com/users/{}" \
         .format(employee_id)
     todos_url = "https://jsonplaceholder.typicode.com/users/{}/todos/" \
@@ -16,12 +16,12 @@ if __name__ == '__main__':
     todos_info = requests.request('GET', todos_url).json()
 
     employee_username = user_info["username"]
-    task_completed = list(filter(lambda obj:
-                                 (obj["completed"] is True), todos_info))
+
     todos_info_sorted = [
         dict(zip(["task", "completed", "username"],
                  [task["title"], task["completed"], employee_username]))
         for task in todos_info]
+
     user_dict = {str(employee_id): todos_info_sorted}
     with open(str(employee_id) + '.json', "w") as file:
         file.write(json.dumps(user_dict))
