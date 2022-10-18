@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-import sys
+"""Module"""
 
 import requests
+import sys
+
 
 """Module"""
 
