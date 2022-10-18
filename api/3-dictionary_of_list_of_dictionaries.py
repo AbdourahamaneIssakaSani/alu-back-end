@@ -40,5 +40,4 @@ if __name__ == '__main__':
         for employee_id in employee_ids:
             print("for id {}".format(employee_id))
             all_users[str(employee_id)] = [get_employee_task(employee_id)]
-        print(all_users)
         file.write(json.dumps(all_users))
